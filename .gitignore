@@ -1,26 +1,36 @@
 # Python
-
-**pycache**/
-*.pyc
+__pycache__/
+*.py[cod]
 *.pyo
 *.pyd
 
-# Virtual environment
-
+# Virtual environments
 .venv/
 venv/
 env/
 
 # PyCharm
-
 .idea/
 
-# OS files
-
+# macOS
 .DS_Store
 
-# Logs
+# Temporary files
+temp_plot.png
+temp_resample.png
+temp_video_convertie.mp4
+compressed.mp4
+compressed.avi
 
+# Logs
 *.log
 
+# Build files
+dist/
+build/
 
+# Audio / Video test files
+bus.avi
+discours.wav
+lune.avi
+papillon.wav

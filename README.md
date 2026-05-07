@@ -1,22 +1,20 @@
-# Détection des contours
+# Audio & Video Processing GUI
 
 ## 📚 Description
 
-Ce projet est une application graphique développée avec **PyQt5** et **OpenCV** permettant la détection des contours dans une image.
+Ce projet est une application desktop développée avec **PyQt5**, **OpenCV** et **SciPy** permettant le traitement et la compression de signaux audio et vidéo.
 
 Ce TP fait partie du module **Computer Vision 1** (ENIS - GI1).
 
 👉 Objectifs :
 
-* Implémenter les filtres **Prewitt** et **Sobel**
-* Calculer le **gradient d’image**
-* Appliquer un **seuillage**
-* Utiliser les dérivées secondes :
-
-  * Laplacien
-  * LoG (Laplacian of Gaussian)
-* Implémenter l’algorithme **Canny**
-
+* Charger et analyser des fichiers audio
+* Visualiser un signal temporel
+* Effectuer le rééchantillonnage (resampling)
+* Implémenter une compression audio par FFT
+* Charger et analyser des vidéos
+* Compresser une vidéo avec différents codecs
+* Modifier la résolution et le FPS d’une vidéo
 
 ---
 
@@ -24,15 +22,41 @@ Ce TP fait partie du module **Computer Vision 1** (ENIS - GI1).
 
 L’application permet :
 
-* Charger une image
-* Afficher en niveaux de gris
-* Appliquer :
+### 🎵 Audio
 
-  * Prewitt / Sobel
-  * Seuillage
-  * Laplacien
-  * LoG
-  * Canny
+* Charger un fichier `.wav`
+* Afficher :
+  * fréquence d’échantillonnage
+  * nombre d’échantillons
+  * durée
+  * type mono/stéréo
+* Visualiser le signal temporel
+* Rééchantillonner le signal :
+  * Fe/2
+  * Fe/4
+  * Fe/8
+* Compresser un signal audio avec la FFT
+* Afficher le spectre fréquentiel
+
+### 🎥 Vidéo
+
+* Charger une vidéo
+* Afficher :
+  * résolution
+  * FPS
+  * nombre de trames
+* Prévisualiser une frame
+* Compresser une vidéo
+* Changer :
+  * résolution
+  * FPS
+  * codec vidéo
+
+Codecs supportés :
+
+* MJPG
+* XVID
+* mp4v
 
 ---
 
@@ -43,6 +67,8 @@ L’application permet :
 * OpenCV
 * NumPy
 * Matplotlib
+* SciPy
+* FFmpeg
 
 ---
 
@@ -51,8 +77,8 @@ L’application permet :
 ### 1. Cloner le projet
 
 ```bash
-git clone https://github.com/waelzouari/Edge-Detection.git
-cd Edge-Detection
+git clone https://github.com/waelzouari/audio-video-processing-pyqt.git
+cd audio-video-processing-pyqt
 ```
 
 ### 2. Installer les dépendances
@@ -61,7 +87,28 @@ cd Edge-Detection
 pip install -r requirements.txt
 ```
 
-### 3. Lancer l’application
+### 3. Installer FFmpeg
+
+#### macOS
+
+```bash
+brew install ffmpeg
+```
+
+#### Ubuntu / Debian
+
+```bash
+sudo apt install ffmpeg
+```
+
+#### Windows
+
+Télécharger FFmpeg :
+https://ffmpeg.org/download.html
+
+---
+
+### 4. Lancer l’application
 
 ```bash
 python main.py
@@ -71,23 +118,46 @@ python main.py
 
 ## 📁 Structure du projet
 
-```
-tp3-edge-detection/
+```text
+audio-video-processing-pyqt/
 │── main.py
 │── design.ui
-│── README.md
 │── requirements.txt
+│── README.md
+│── .gitignore
 ```
 
 ---
 
 ## 📌 Fonctionnalités principales
 
-✔ Détection par dérivée première
-✔ Calcul du gradient (magnitude)
-✔ Seuillage des contours
-✔ Détection par dérivée seconde
-✔ Détection avancée avec Canny
+✔ Analyse de signaux audio  
+✔ Rééchantillonnage audio  
+✔ Compression audio avec FFT  
+✔ Visualisation du spectre fréquentiel  
+✔ Analyse vidéo  
+✔ Compression vidéo  
+✔ Support multi-codecs  
+✔ Modification de résolution et FPS  
+✔ Interface graphique PyQt5  
+
+---
+
+## 🧠 Concepts utilisés
+
+### Audio
+
+* Signal temporel
+* FFT (Fast Fourier Transform)
+* Compression fréquentielle
+* Rééchantillonnage
+
+### Vidéo
+
+* Codec vidéo
+* Compression
+* Résolution
+* FPS (Frames Per Second)
 
 ---
 
@@ -95,4 +165,3 @@ tp3-edge-detection/
 
 * Wael Zouari
 
----
