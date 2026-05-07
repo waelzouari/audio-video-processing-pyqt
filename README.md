@@ -121,6 +121,7 @@ python main.py
 ```text
 audio-video-processing-pyqt/
 │── main.py
+│── design.py
 │── design.ui
 │── requirements.txt
 │── README.md
